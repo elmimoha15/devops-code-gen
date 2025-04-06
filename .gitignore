@@ -1,0 +1,9 @@
+# Node.js frontend
+frontend/node_modules
+frontend/build # If you have a production build folder
+
+# Python backend
+backend/__pycache__/
+backend/.pytest_cache/
+backend/.env # If you store sensitive environment variables here (be careful!)
+backend/venv/ # If you have a virtual environment folder

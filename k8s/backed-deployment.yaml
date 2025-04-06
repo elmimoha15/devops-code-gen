@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: codegen-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: devopscodegen-backend
+  template:
+    metadata:
+      labels:
+        app: devopscodegen-backend
+    spec:
+      containers:
+        - name: codegen-backend
+          image: elmimoha15/devopscodegen-backend:latest # Replace with your Docker Hub/registry info
+          ports:
+            - containerPort: 80
+          env:
+            # Add any environment variables your backend needs here
+            - name: UVICORN_HOST
+              value: "0.0.0.0"
+            - name: UVICORN_PORT
+              value: "80"
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 500m
+              memory: 512Mi

@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: devopscodegen-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: devopscodegen-frontend
+  template:
+    metadata:
+      labels:
+        app: devopscodegen-frontend
+    spec:
+      containers:
+        - name: codegen-frontend
+          image: elmimoha15/devopscodegen-frontend:latest # Replace with your Docker Hub/registry info
+          ports:
+            - containerPort: 3000
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 500m
+              memory: 512Mi
